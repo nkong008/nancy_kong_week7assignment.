@@ -1,0 +1,281 @@
+!DOCTYPE html>
+<html>
+
+<head>
+    <title>First jQuery-Enabled Page</title>
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- insert the script to reference jQuery here -->
+
+    <!-- insert the script to display the Hello World message here -->
+    <!--chap 1 embding jquery page-->
+    <!--chap 1 selectors and filters-->
+    <title>Selectors and Filters</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script type="text/javascript" src="../jquery-3.0.0.js"></script>
+    <script type="text/javascript">
+        $("document").ready(function() {
+            $("p").css("border", "3px solid red");
+            //$(".selectors").css("border", "3px solid red");
+            //$("#intro").css("border", "3px solid red");
+//            $("p:first").css("border", "3px solid red");
+//            $("h2:not(.selectors)").css("border", "3px solid red");
+        });
+    </script>
+
+ <!--chapter 2 creating and modifying page content-->
+<title>Creating and Changing Content</title>
+<link rel="stylesheet" href="css/style.css" />
+<script type="text/javascript" src="../jquery-3.0.0.js"></script>
+<script type="text/javascript">
+    $("document").ready(function () {
+
+        // create some new content
+        //function with a string that has a paragraph tag, and that will take the string, and create a new dom element that is represented by a paragraph, and store it in this variable.
+
+        var newP = $("<p>");
+        // take that new paragraph, and use the append function to append some more HTML in to the paragraph.
+        newP.append("<em>Hello There</em>");
+
+        //The HTML function, when you give it an argument, will replace all of the content 
+                 $("#example").html(newP);
+//            
+            //Prepend means take this content, and in this case it's just a string of text, it's not HTML, and I'm going to prepend, or insert this content in front of whatever the result of this selector is.
+       $("#creation").prepend("Watch This! ");
+//            
+//            // change the existing content
+//            $("#example").html("<h2>This is a new H2</h2>");
+//            
+//function called text. Text is different than the HTML function, in that it will take whatever string you give it, and convert it in to escaped text content.
+         $("#example").text("<h2>This is a new H2</h2>");
+    });
+</script>
+
+<!--chap 1 handelinng events-->
+<title>jQuery Event Handling</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script type="text/javascript" src="../jquery-3.0.0.js"></script>
+    <script type="text/javascript">
+        $("document").ready(function() {
+            // on function to start listening for an event
+            $("#example").on("mousemove", onMouseOver);
+            $("#example").on("click", onMouseClick);
+            $("#example").on("mouseleave", onMouseLeave);
+        });
+        // eceives something called the jQuery unified event object as a parameter. 
+        function onMouseOver(evt) {
+            $("#example").text(evt.type + ": " + evt.pageX + ", " + evt.pageY + "\n" +
+                              "Button: " + evt.which + " Key: " + evt.metaKey);
+        }
+        function onMouseClick(evt) {
+            //use the text function to set the contents of the example div to some properties that are passed in as part of that event object.
+            $("#example").text(evt.type + ": " + evt.pageX + ", " + evt.pageY);
+            $("#example").off("mousemove", onMouseOver);
+        }
+        function onMouseLeave(evt) {
+            $("#example").text("mouseleave");
+        }
+
+        
+       
+        
+    <script src="jquery-3.0.0.js"></script>
+</head>
+
+//chapter 2 basic selectors
+<head>
+    <title>Basic jQuery Filters</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script type="text/javascript" src="../jquery-3.0.0.js"></script>
+    <script type="text/javascript">
+        $("document").ready(function() {
+            //$("p").css("border", "3px solid red");
+            $(".a").css("border", "3px solid red");
+            //$("#example").css("border", "3 px solid red");
+
+        });
+    </script>
+    <script src="jquery-3.0.0.js"></script>
+</head>
+
+//chapter 2 Basic Filters 
+<head>
+    <title>Basic jQuery Filters</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script type="text/javascript" src="../jquery-3.0.0.js"></script>
+    <script type="text/javascript">
+        $("document").ready(function() {
+            $("#example p:first").css("border", "3px solid red");
+            $("#example p:last").css("border", "3px solid red");
+        });
+    </script>
+    <script src="jquery-3.0.0.js"></script>
+</head>
+
+//chapter 2 advanced selectors
+<head>
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script type="text/javascript" src="../jquery-3.0.0.js"></script>
+    <script type="text/javascript">
+        $("document").ready(function() {
+            //The child selector is indicated by the angle bracket and what this basically means is select this tag but only if it is an immediate child of this kind of tag.
+            $("div > p").css("border", "3px solid red");
+            $("div p").css("border", "3px solid red");
+            $("ul + div").css("border","3px solid red");
+            $(".a ~ p").css ("border", "3px solid red");
+        });
+        <script src="jquery-3.0.0.js"></script>
+
+    </script>
+</head>
+
+//chapter 2 attribute filters
+<head>
+    <title>Using Attribute Filters</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script type="text/javascript" src="../jquery-3.0.0.js"></script>
+    <script type="text/javascript">
+        $("document").ready(function() {
+            //$("p[class]").css("border", "3px solid red");
+            //$("p[id=para1]").css("border", "3px solid red");
+            $("p[id^=para][lang*=en]").css("border", "3px solid red");
+        });
+        <script src="jquery-3.0.0.js"></script>
+    </script>
+</head>
+
+<body>
+    <h1>First jQuery Page</h1>
+    <div id="content">
+        <!-- we start with an empty document -->
+    </div>
+
+    <h1 id="intro">Introduction to jQuery Selectors and Filters</h1>
+    <div id="content">
+        <p>Selectors and Filters provide a way of finding and extracting information from Web pages.</p>
+        
+        <h2 class="selectors">Selectors</h2>
+        <p>Selectors are used to select parts of the Web page using a common CSS-style syntax.</p>
+        <p>For example, <code>$("p")</code> will select all of the paragraph tags in a document and return them as a list that
+            can be further operated upon.</p>
+            
+        <h2 class="filters">Filters</h2>
+        <p>Filters are used to further refine the results returned from selectors.</p>
+        <p>For example, <code>$("p:first")</code> will select the first paragraph in the returned set from <code>$("p")</code>.</p>
+
+        <!--chapter 2 creating and modifying page content-->
+
+        <h1 id="intro">Using jQuery to Create/Change Content</h1>
+        <div id="content">
+    
+            <p>jQuery makes it very easy to create new page content and change existing page content.</p>
+            <h2 id="creation">Content Creation</h2>
+            <p>Creating new content is as simple as passing a string of HTML to the $() function.</p>
+            <p>For example, <code>$("&lt;p&gt;")</code> creates a new, empty paragraph tag. To add new content to the paragraph,
+                you could simply write <code>$("&lt;p&gt;").append("&lt;em&gt;Hello there&lt;/em&gt;")</code>.</p>
+            <h2 id="changing">Changing Content</h2>
+            <p>There are multiple ways to change page content using jQuery, depending on your needs.</p>
+            <p>The <code>html()</code> and <code>text()</code> functions can be used to directly manipulate the contents of elements,
+                and there are ways to control how content can be inserted and moved around in the page.</p>
+            <div id="example">
+            </div>
+
+            <!--chapter 1 handeling events-->
+            <h1>jQuery Event Handling</h1>
+    <div id="content">
+
+        <p>jQuery normalizes an event structure across browsers and provides cross-browser consistency for properties such as
+            the event name, the page coordinates of the mouse, the element where the event originated along with any other
+            element related to the event, and information such as whether a meta-key or specific mouse button was pressed.</p>
+        <div id="example">
+        </div>
+    </div>
+
+        <!--Chapter 2 Basic selectors-->
+    <h1>Using Basic jQuery Filters</h1>
+    <div id="content">
+
+        <p>jQuery filters are used to refine the results that are returned from selectors.</p>
+        <p>A few examples:</p>
+        <ul id="list1">
+            <li class="a"><code>$("p:first")</code>: of the returned &lt;p&gt; tags, select the first one</li>
+            <li class="a"><code>$("p:even")</code>: select the even-number &lt;p&gt; tags</li>
+            <li class="b"><code>$("a:gt(1)")</code>: of the &lt;a&gt; tags, select all those after the 0th and 1st</li>
+            <li class="b"><code>$("p:not(p:eq(2))")</code>: select all the &lt;p&gt; tags except the one at index 2</li>
+        </ul>
+        <div id="example">
+            <p class="a">This is paragraph 1</p>
+            <p id="para1">This is paragraph 2</p>
+            <p class="b">This is paragraph 3</p>
+            <p id="para4" lang="en-us">This is paragraph 4</p>
+            <p id="para5" lang="en-gb">This is paragraph 5</p>
+        </div>
+    </div>
+
+    <!--Chapter 2 Basic filters-->
+    <h1>Using Basic jQuery Filters</h1>
+    <div id="content">
+
+        <p>jQuery filters are used to refine the results that are returned from selectors.</p>
+        <p>A few examples:</p>
+        <ul id="list1">
+            <li class="a"><code>$("p:first")</code>: of the returned &lt;p&gt; tags, select the first one</li>
+            <li class="a"><code>$("p:even")</code>: select the even-number &lt;p&gt; tags</li>
+            <li class="b"><code>$("a:gt(1)")</code>: of the &lt;a&gt; tags, select all those after the 0th and 1st</li>
+            <li class="b"><code>$("p:not(p:eq(2))")</code>: select all the &lt;p&gt; tags except the one at index 2</li>
+        </ul>
+        <div id="example">
+            <p class="a">This is paragraph 1</p>
+            <p id="para1">This is paragraph 2</p>
+            <p class="b">This is paragraph 3</p>
+            <p id="para4" lang="en-us">This is paragraph 4</p>
+            <p id="para5" lang="en-gb">This is paragraph 5</p>
+        </div>
+    </div>
+
+    <!--chapter 2 advanced selectors-->
+    <h1>jQuery Hierarchy Selectors</h1>
+    <div id="content">
+
+        <p>To select elements based on their position in the document tree, use the Hierarchy Selectors.</p>
+        <p>The Hierarchy Selectors work by examining the position of target elements relative to other elements:</p>
+        <ul id="list1">
+            <li><code>$("parent > child")</code>: selects "child" elements that are immediate descendants of the "parent"</li>
+            <li><code>$("ancestor descendant")</code>: selects "descendant" elements as long as they have an "ancestor" element
+                somewhere above them</li>
+            <li><code>$("prev + next")</code>: selects the "next" element if it is immediately preceded by a "prev" element</li>
+            <li><code>$("prev ~ siblings")</code>: selects all "siblings" elements that come after a "prev" element</li>
+        </ul>
+        <div id="example">
+            <p class="a">This is paragraph 1</p>
+            <p id="para1">This is paragraph 2</p>
+            <p class="b">This is paragraph 3</p>
+            <p id="para4" lang="en-us">This is paragraph 4</p>
+            <p id="para5" lang="en-gb">This is paragraph 5</p>
+        </div>
+    </div>
+
+
+    <h1>Using Attribute Filters</h1>
+    <div id="content">
+
+        <p>Attribute filters are used to select elements in the Web page that have attribute values matching a given set of
+            criteria.</p>
+        <p>Some examples include:</p>
+        <ul id="list1">
+            <li class="a">[<i>attr</i>]: element has an attribute named <i>attr</i></li>
+            <li class="a">[<i>attr</i>=val]: element has an attribute whose value is "val"</li>
+            <li class="b">[<i>attr</i>^=val]: element has an attribute whose value starts with "val"</li>
+        </ul>
+        <div id="example">
+            <p class="a">This is paragraph 1</p>
+            <p id="para1">This is paragraph 2</p>
+            <p class="b">This is paragraph 3</p>
+            <p id="para4" lang="en-us">This is paragraph 4</p>
+            <p id="para5" lang="en-gb">This is paragraph 5</p>
+        </div>
+    </div>
+</body>
+
+</html>
